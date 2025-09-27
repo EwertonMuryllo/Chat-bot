@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chatbot</title>
+</head>
+<body>
+
+    <main id="container">
+                       
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel"> 
+     
+     function Chatinput() {
+        return (
+        <div> 
+            <input 
+            type="text" 
+            placeholder="send a message to chatbot" 
+            size="30"
+            />
+            <button>send</button>
+        </div>
+        );
+     }
+
+  function chatmessage({message, sender}) {}
+
+   // if(sender === 'robot'){
+     //   return (
+       // <div>
+      //  <img src="./assets/robot.png" width= "50" />
+      //  {message}
+    // </div> 
+     //   )
+
+    //}
+   
+    const { message } = props;
+
+    return (
+     <div>
+      {sender === 'robot' && (
+        <img src="./assets/robot.png" width="50"/>
+    )}
+      {message}  
+      {sender === (
+        <img src="./assets/user.png" width= "50" />
+    ) }
+     </div>   
+    );
+
+
+
+          
+    
+function App() {
+     return (
+     <>
+       <Chatinput/>
+       <Chatmessage message = "hello!"  sender= "user" />
+       <Chatmessage message = "hello how can I help you"/>
+       <Chatmessage message = "flip a coin" sender= "user"/>
+       <Chatmessage message = "it is tail"/> 
+     </>
+     );
+    };
+
+   const container = document.querySelector('#container');
+   ReactDOM.createRoot(container).render(<App/>);
+
+    </script>             
+</body>
+ 
+</html>
